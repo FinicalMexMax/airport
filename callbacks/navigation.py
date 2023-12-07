@@ -17,18 +17,6 @@ async def profile(query: CallbackQuery) -> None:
     )
 
 
-@router.callback_query(F.data == 'flights')
-async def flights(query: CallbackQuery) -> None:
-    await query.message.edit_text(
-        text='От куда?',
-        reply_markup=inline_builder(
-            ['Отправить геолокацию', 'Back'],
-            'main_back',
-            sizes=1
-        )
-    )
-
-
 @router.callback_query(F.data == 'support')
 async def support(query: CallbackQuery) -> None:
     await query.message.edit_text(
